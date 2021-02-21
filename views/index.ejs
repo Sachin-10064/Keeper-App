@@ -1,0 +1,23 @@
+<%- include("heaper") -%> 
+    <section>
+        <div>
+        <form class="create-note" action="/" method="post">
+            <input type="text" placeholder="Title" name="Title">
+            <textarea placeholder="Take a note" name="content" rows=3 ></textarea>
+            <button type="submit"><i class="fas fa-plus"></i></button>
+    
+        </form>
+        </div>  
+       <% notes.forEach(function(note){ %>
+        <div class="note">
+            <form action="/delete" method="post">
+               <h1><%= note.title %></h1>
+               <p><%= note.body %></p>
+               <button type="submit" name="button" value="<%= note._id %>" ><i class="fas fa-trash"></i></button>
+            </form>
+
+        </div>
+        <% }); %>
+    </section>
+
+<%- include("footer") -%>
